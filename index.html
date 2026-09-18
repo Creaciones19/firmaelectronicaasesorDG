@@ -24,8 +24,8 @@
 
   <style>
     :root {
-      --azul: #173f67;
-      --azul-claro: #eaf2f9;
+      --azul: #171878;
+      --azul-claro: #e9ecff;
       --verde: #16784b;
       --rojo: #b42318;
       --gris: #5f6b76;
@@ -45,14 +45,40 @@
     }
 
     header {
-      background: var(--azul);
+      background: linear-gradient(110deg, #050516 0%, #14145f 46%, #3738c8 100%);
       color: var(--blanco);
-      padding: 22px 18px;
+      padding: 18px 24px;
       text-align: center;
+      box-shadow: 0 4px 18px rgba(6, 8, 50, .28);
     }
 
-    header h1 { margin: 0 0 5px; font-size: 24px; }
+    .encabezado-contenido {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 108px 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .logo-dg {
+      width: 96px;
+      height: 96px;
+      display: block;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 225, 255, .38);
+    }
+
+    .encabezado-texto { text-align: center; }
+    header h1 { margin: 0 0 5px; font-size: 28px; }
     header p { margin: 0; opacity: .9; }
+    header .acciones { margin: 0; justify-content: flex-end; }
+    header .secundario {
+      background: rgba(255, 255, 255, .94);
+      color: #11164f;
+      border-color: rgba(255, 255, 255, .75);
+    }
 
     main {
       width: min(1180px, calc(100% - 28px));
@@ -228,15 +254,24 @@
       .archivos { grid-template-columns: 1fr; }
       header h1 { font-size: 20px; }
       .tarjeta { padding: 15px; }
+      .encabezado-contenido { grid-template-columns: 68px 1fr; gap: 12px; }
+      .logo-dg { width: 62px; height: 62px; }
+      .encabezado-texto { text-align: left; }
+      header .acciones { grid-column: 1 / -1; justify-content: center; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Firma digital del contrato</h1>
-    <p>Colaboración comercial con asesor(a) independiente</p>
-    <div class="acciones"><button id="abrirPanelDinah" class="secundario" type="button">Acceso privado de Dinah</button><button id="volverAsesor" class="secundario" type="button" style="display:none">Volver a firma del asesor</button></div>
+    <div class="encabezado-contenido">
+      <img class="logo-dg" src="dgazul.png" alt="Logotipo DG">
+      <div class="encabezado-texto">
+        <h1>Firma digital del contrato</h1>
+        <p>Colaboración comercial con asesor(a) independiente</p>
+      </div>
+      <div class="acciones"><button id="abrirPanelDinah" class="secundario" type="button">Acceso privado de Dinah</button><button id="volverAsesor" class="secundario" type="button" style="display:none">Volver a firma del asesor</button></div>
+    </div>
   </header>
 
   <main id="portalAsesor">
